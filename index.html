@@ -1,0 +1,103 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Project</title>
+    <link rel="stylesheet" href="index.css">
+    <link id="nordvpn-contentScript-extension-fonts" rel="stylesheet" href="http://fonts.googleapis.com/css?jbUpdateLinksId=92&amp;family=Lato">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="images/logo.png">
+    </div>
+
+    <div class="contact-us">
+        <form id="myForm">
+            <input type="email" id="email" name="email">
+            <div id="error-message" style="color:red;"></div>
+            <button type="submit" id="submit-btn">Send</button>
+        </form>
+    </div>
+</header>
+<script>
+  const emailInput = document.getElementById("email");
+  const errorMessage = document.getElementById("error-message");
+  const submitBtn = document.getElementById("submit-btn");
+
+  emailInput.addEventListener("input", function(event) {
+    const email = event.target.value;
+    if (email === "") {
+      errorMessage.textContent = "";
+      submitBtn.disabled = true;
+      submitBtn.classList.add("disabled");
+    } else if (!validateEmail(email)) {
+      errorMessage.textContent = "Неверный email адрес";
+      submitBtn.disabled = true;
+      submitBtn.classList.add("disabled");
+    } else {
+      errorMessage.textContent = "";
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("disabled");
+    }
+  });
+
+  function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+
+    return re.test(email);
+  }
+</script>
+<main>
+    <section class="first-page">
+        <div class="text-content">
+            <div class="header">
+                TRANSFORM YOUR MIND WITH HTML5 MASTERY!
+            </div>
+            <div class="text">
+                Our highly qualified therapists can help you with a range of issues, including relationships,
+                sex, PTSD, depression, social anxiety, or even just taking more care of yourself.
+                You just need to take our courses on semantic layout!            </div>
+            <div class="actions">
+                <button class="what-am-i"><span class="tooltip" data-title = 'YOU A CONFIDIENT HTML DEVELOPER'> WHO AM I</span></button>
+                <button class="what-i-do"><span class="tooltip" data-title = 'YOU MAKE WEBSITES FOR ROBOTS'> WHAT DO I DO</span></button>
+            </div>
+        </div>
+<!--        <div class="image-content">-->
+<!--            <img src="images/niga.png" class="photo">-->
+<!--        </div>-->
+    </section>
+
+    <section class="second-page">
+        <div class="first-half">
+            <div class="left">
+                <div class="header">
+                    Why HTML5?
+                </div>
+                <div class="text">
+                    Are you looking to improve your website's performance and user experience? Look no further than HTML5!
+                    Just like how a skilled psychologist can help you navigate life's challenges,
+                    HTML5 can help your website overcome its obstacles and reach its full potential.
+                    HTML5 is the latest version of Hypertext Markup Language, and it's packed with new
+                </div>
+            </div>
+            <div class="right">
+                <img src="images/girl.png"class="right-image">
+            </div>
+        </div>
+        <div class="second-half">
+            <div class="text-container">
+                <div class="header">
+                    About Us
+                </div>
+                <div class="text">
+                    At our company, we understand that life can be challenging, and mental health struggles can be overwhelming. That's why we're here to help you overcome these obstacles and achieve your goals, while also providing high-quality training in HTML5 web development.
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer></footer>
+</body>
